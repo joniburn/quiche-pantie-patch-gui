@@ -19,14 +19,14 @@ export class PantiesService {
    */
   getPanties(): Observable<string[]> {
     // TODO APIから取得する
-    return this.client.get<string[]>(`/assets/panties.json`);
+    return this.client.get<string[]>(`assets/panties.json`);
   }
 
   /**
    * コンバーター定義を取得する。
    */
   getConverters(): Observable<{[key: string]: string}> {
-    return this.client.get<{[key: string]: string}>(`/assets/converters.json`);
+    return this.client.get<{[key: string]: string}>(`assets/converters.json`);
   }
 
   /**
