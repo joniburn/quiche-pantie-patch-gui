@@ -4,10 +4,14 @@ import { NgModule } from '@angular/core';
 
 import {
   MatButtonModule,
+  MatDialogModule,
+  MatRadioModule,
 } from '@angular/material';
 
 const MAT_MODULES = [
   MatButtonModule,
+  MatDialogModule,
+  MatRadioModule,
 ];
 
 @NgModule({

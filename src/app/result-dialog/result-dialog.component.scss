@@ -1,0 +1,10 @@
+// ボタンの位置を調整
+[mat-dialog-actions] {
+  display: flex;
+  padding-bottom: 0;
+  margin: 0 -16px -24px;
+
+  & > span:first-child {
+    flex-grow: 1;
+  }
+}

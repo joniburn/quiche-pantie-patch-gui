@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  margin: 16px;
+}
+
+.panties {
+  border: 1px solid grey;
+  padding: 8px;
+  height: 50vh;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 30px;
+}

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
+
+import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 
 @Component({
   selector: 'qpp-root',
@@ -6,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'quiche-pantie-patch-gui';
+
+  constructor(
+    private dialog: MatDialog,
+  ) {
+  }
+
+  targets = [
+    ['quiche', 'キッシュちゃん'],
+    ['quiche_nbody', 'キッシュちゃん(素体)'],
+  ];
+
+  execute() {
+    this.dialog.open(ResultDialogComponent, {
+      disableClose: true,
+    });
+  }
+
 }

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
+import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,11 @@ import { AppMaterialModule } from './app-material.module';
     AppMaterialModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    ResultDialogComponent,
+  ],
+  entryComponents: [
+    ResultDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
