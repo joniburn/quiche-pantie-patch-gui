@@ -1,0 +1,26 @@
+<h1>キッシュちゃんパンツパッチ</h1>
+
+<!-- 変換元パンツの一覧 -->
+<h3>変換するパンツを選んでください。</h3>
+<div class="panties-container">
+  <div class="panties">
+    <div class="one-panty" *ngFor="let p of panties$ | async" (click)="path = p"
+         [class.selected]="path === p">
+      <img [src]="pantiesService.originalPantyUrl(p)">
+      <div>{{p}}</div>
+    </div>
+  </div>
+</div>
+
+<!-- 変換先アバター選択 -->
+<h3>変換対象のアバターを選んでください。</h3>
+<mat-radio-group [(ngModel)]="model">
+  <mat-radio-button *ngFor="let c of converters$ | async" [value]="c">
+    {{c[1]}}
+  </mat-radio-button>
+</mat-radio-group>
+
+<!-- GO! -->
+<button mat-flat-button color="primary" [disabled]="!model || !path" (click)="execute()">
+  {{ path ? path + ' を' : '' }} {{ model ? model[1] : '未選択' }} に変換！
+</button>
