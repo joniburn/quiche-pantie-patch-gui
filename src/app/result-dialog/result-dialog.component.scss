@@ -1,3 +1,14 @@
+// 背景アルファ
+.img-container {
+  background-image: url(/assets/a.png);
+}
+
+// 変換後画像の大きさ
+img {
+  max-width: 60vw;
+  height: auto;
+}
+
 // ボタンの位置を調整
 [mat-dialog-actions] {
   display: flex;

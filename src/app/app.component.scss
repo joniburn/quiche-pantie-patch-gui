@@ -3,10 +3,37 @@
   margin: 16px;
 }
 
-.panties {
-  border: 1px solid grey;
+.panties-container {
+  outline: 1px solid grey;
   padding: 8px;
   height: 50vh;
+  overflow-y: scroll;
+  .panties {
+    display: flex;
+    flex-wrap: wrap;
+    .one-panty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 8px;
+      cursor: pointer;
+      &.selected {
+        outline: solid 3px black;
+      }
+      &:not(.selected):hover {
+        outline: solid 3px #ccc;
+      }
+      img {
+        width: 300px;
+        height: auto;
+        margin: 8px;
+        padding: 8px;
+      }
+      div {
+        margin-bottom: 8px;
+      }
+    }
+  }
 }
 
 mat-radio-group {

@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -8,6 +10,8 @@ import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 
 @NgModule({
   imports: [
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppMaterialModule,
