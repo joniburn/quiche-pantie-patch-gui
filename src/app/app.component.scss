@@ -5,6 +5,17 @@
   margin: 16px;
 }
 
+.heading {
+  display: flex;
+  margin: 8px 0 0;
+  h1 {
+    margin: 0;
+  }
+  button {
+    margin: 5px 0 0 8px;
+  }
+}
+
 .panties-container {
   outline: 1px solid grey;
   padding: 8px;
