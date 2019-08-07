@@ -46,7 +46,7 @@ export class PantiesService {
    * @param path パンツのファイル名
    */
   originalPantyUrl(path: string): string {
-    return `${BASE_URL}/dream/${path}`;
+    return `${BASE_URL}/api/dream/${path}`;
   }
 
   /**
@@ -56,7 +56,7 @@ export class PantiesService {
    * @param path パンツのファイル名
    */
   convertedPantyUrl(model: string, path: string): string {
-    return `${BASE_URL}/converted/${model}/${path}`;
+    return `${BASE_URL}/api/convert/${model}/${path}`;
   }
 
 }
