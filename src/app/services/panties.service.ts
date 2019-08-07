@@ -1,8 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 const BASE_URL = 'https://pantie-patch.herokuapp.com';
+
+/**
+ * パンツ一覧取得APIの返却値。
+ */
+interface DreamList {
+  images: string[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +27,10 @@ export class PantiesService {
    * パンツのファイル名一覧を取得する。
    */
   getPanties(): Observable<string[]> {
-    // TODO APIから取得する
     return this.client.get<string[]>(`assets/panties.json`);
+    // TODO CORS実装してもらったらAPIから取得する
+    // return this.client.get<DreamList>(`${BASE_URL}/api/dream/`).pipe(
+    //   map(dreamList => dreamList.images));
   }
 
   /**
@@ -35,7 +46,7 @@ export class PantiesService {
    * @param path パンツのファイル名
    */
   originalPantyUrl(path: string): string {
-    return `${BASE_URL}/dream/${path}`;
+    return `${BASE_URL}/api/dream/${path}`;
   }
 
   /**
@@ -45,7 +56,7 @@ export class PantiesService {
    * @param path パンツのファイル名
    */
   convertedPantyUrl(model: string, path: string): string {
-    return `${BASE_URL}/converted/${model}/${path}`;
+    return `${BASE_URL}/api/convert/${model}/${path}`;
   }
 
 }

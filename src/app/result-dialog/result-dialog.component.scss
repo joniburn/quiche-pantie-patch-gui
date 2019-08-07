@@ -1,12 +1,20 @@
-// 背景アルファ
+@import '../../styles.scss';
+
+mat-progress-bar {
+  width: 100%;
+}
+
 .img-container {
-  background-image: url('/assets/a.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 // 変換後画像の大きさ
 img {
   max-width: 60vw;
-  height: auto;
+  max-height: 50vh;
+  @include alpha-background();
 }
 
 // ボタンの位置を調整

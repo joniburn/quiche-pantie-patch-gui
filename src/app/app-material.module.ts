@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatDialogModule,
+  MatProgressBarModule,
   MatRadioModule,
 } from '@angular/material';
 
 const MAT_MODULES = [
   MatButtonModule,
   MatDialogModule,
+  MatProgressBarModule,
   MatRadioModule,
 ];
 
