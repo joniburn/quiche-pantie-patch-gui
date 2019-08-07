@@ -1,5 +1,9 @@
 @import '../../styles.scss';
 
+mat-progress-bar {
+  width: 100%;
+}
+
 .img-container {
   display: flex;
   flex-direction: column;

@@ -1,9 +1,15 @@
-<h1 mat-dialog-title>Dream has arrived.</h1>
+<h1 mat-dialog-title>
+  <ng-container *ngIf="loaded; else loading">Dream has arrived.</ng-container>
+</h1>
+<ng-template #loading>Converting dream...</ng-template>
 <div mat-dialog-content>
-  右クリックから名前をつけて画像を保存をしてください。
-  <div class="img-container">
-    <img [src]="data.url">
+  <div [style.display]="loaded ? 'block' : 'none'">
+    右クリックから名前をつけて画像を保存をしてください。
+    <div class="img-container">
+      <img #dream [src]="data.url">
+    </div>
   </div>
+  <mat-progress-bar *ngIf="!loaded" mode="indeterminate"></mat-progress-bar>
 </div>
 <div mat-dialog-actions>
   <span></span>
