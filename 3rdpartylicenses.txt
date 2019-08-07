@@ -89,6 +89,8 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
+@angular/material/progress-bar
+
 @angular/material/radio
 
 @angular/platform-browser
