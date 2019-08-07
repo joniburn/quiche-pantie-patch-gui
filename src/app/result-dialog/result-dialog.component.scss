@@ -1,14 +1,16 @@
 @import '../../styles.scss';
 
-// 背景アルファ
 .img-container {
-  @include alpha-background();
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 // 変換後画像の大きさ
 img {
   max-width: 60vw;
-  height: auto;
+  max-height: 50vh;
+  @include alpha-background();
 }
 
 // ボタンの位置を調整
