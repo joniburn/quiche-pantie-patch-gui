@@ -1,6 +1,8 @@
+@import '../../styles.scss';
+
 // 背景アルファ
 .img-container {
-  background-image: url('/assets/a.png');
+  @include alpha-background();
 }
 
 // 変換後画像の大きさ
