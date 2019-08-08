@@ -1,9 +1,55 @@
 import { Component } from '@angular/core';
 
+
+/**
+ * 変更履歴
+ */
+interface UpdateLog {
+  version: string;
+  date: string;
+  descriptions: string[];
+}
+
 @Component({
   selector: 'qpp-info-dialog',
   templateUrl: './info-dialog.component.html',
   styleUrls: ['./info-dialog.component.scss']
 })
 export class InfoDialogComponent {
+
+  updateLog: UpdateLog[] = [
+    {
+      version: 'v1.3.0',
+      date: '2019/08/09',
+      descriptions: [
+        '更新履歴を追加',
+        'パンツ一覧をAPIから取得し、毎日自動更新されるように修正',
+      ],
+    },
+    {
+      version: 'v1.2.0',
+      date: '2019/08/08',
+      descriptions: [
+        '「このアプリについて」を追加',
+      ],
+    },
+    {
+      version: 'v1.1.0',
+      date: '2019/08/07',
+      descriptions: [
+        'パンツ変換中にアニメーションを表示',
+        'パンツ画像の背景にアルファ透過でおなじみのチェック柄を表示',
+        'パンツ変換後の画像が大きく表示されすぎる問題を修正',
+        '新しいパンツが表示できるように、一旦向こう数日分のパンツを表示',
+      ],
+    },
+    {
+      version: 'v1.0.0',
+      date: '2019/08/06',
+      descriptions: [
+        '暫定バージョン',
+      ],
+    },
+  ];
+
 }

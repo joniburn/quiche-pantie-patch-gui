@@ -8,6 +8,7 @@ import {
   MatIconModule,
   MatProgressBarModule,
   MatRadioModule,
+  MatTabsModule,
   MatTooltipModule,
 } from '@angular/material';
 
@@ -17,6 +18,7 @@ const MAT_MODULES = [
   MatIconModule,
   MatProgressBarModule,
   MatRadioModule,
+  MatTabsModule,
   MatTooltipModule,
 ];
 
