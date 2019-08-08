@@ -5,15 +5,19 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatDialogModule,
+  MatIconModule,
   MatProgressBarModule,
   MatRadioModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 const MAT_MODULES = [
   MatButtonModule,
   MatDialogModule,
+  MatIconModule,
   MatProgressBarModule,
   MatRadioModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

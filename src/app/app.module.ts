@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   imports: [
@@ -18,9 +19,11 @@ import { ResultDialogComponent } from './result-dialog/result-dialog.component';
   ],
   declarations: [
     AppComponent,
+    InfoDialogComponent,
     ResultDialogComponent,
   ],
   entryComponents: [
+    InfoDialogComponent,
     ResultDialogComponent,
   ],
   providers: [],
