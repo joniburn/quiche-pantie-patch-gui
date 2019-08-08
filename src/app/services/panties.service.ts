@@ -27,10 +27,8 @@ export class PantiesService {
    * パンツのファイル名一覧を取得する。
    */
   getPanties(): Observable<string[]> {
-    return this.client.get<string[]>(`assets/panties.json`);
-    // TODO CORS実装してもらったらAPIから取得する
-    // return this.client.get<DreamList>(`${BASE_URL}/api/dream/`).pipe(
-    //   map(dreamList => dreamList.images));
+    return this.client.get<DreamList>(`${BASE_URL}/api/dream/`).pipe(
+      map(dreamList => dreamList.images));
   }
 
   /**
