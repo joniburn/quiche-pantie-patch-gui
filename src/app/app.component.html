@@ -24,6 +24,7 @@
            [class.large]="pantySize === 'large'">
       <div>{{p}}</div>
     </div>
+    <div *ngIf="!(panties$ | async)">Loading dream...</div>
   </div>
 </div>
 
