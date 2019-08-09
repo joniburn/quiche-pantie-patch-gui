@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "gh-pages": "ng build --base-href=/quiche-pantie-patch-gui/ --deploy-url=/quiche-pantie-patch-gui/ --prod",
     "test": "ng test",
