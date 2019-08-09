@@ -24,6 +24,7 @@ export class InfoDialogComponent {
       descriptions: [
         '更新履歴を追加',
         'パンツ一覧をAPIから取得し、毎日自動更新されるように修正',
+        'パンツ一覧のサムネイル画像サイズを変更できる機能を追加',
       ],
     },
     {

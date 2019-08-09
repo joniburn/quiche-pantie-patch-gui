@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   panties$: Observable<string[]>;
   converters$: Observable<[string, string][]>;
 
+  pantySize: 'small' | 'medium' | 'large' | 'original' = 'medium';
+
   path: string;
   model: [string, string];
 

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import {
   MatButtonModule,
+  MatButtonToggleModule,
   MatDialogModule,
   MatIconModule,
   MatProgressBarModule,
@@ -14,6 +15,7 @@ import {
 
 const MAT_MODULES = [
   MatButtonModule,
+  MatButtonToggleModule,
   MatDialogModule,
   MatIconModule,
   MatProgressBarModule,

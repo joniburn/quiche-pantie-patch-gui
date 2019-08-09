@@ -8,11 +8,20 @@
 
 <!-- 変換元パンツの一覧 -->
 <h3>変換するパンツを選んでください。</h3>
+<mat-button-toggle-group [(ngModel)]="pantySize">
+  <mat-button-toggle value="small">小</mat-button-toggle>
+  <mat-button-toggle value="medium">中</mat-button-toggle>
+  <mat-button-toggle value="large">大</mat-button-toggle>
+  <mat-button-toggle value="original">原寸</mat-button-toggle>
+</mat-button-toggle-group>
 <div class="panties-container">
   <div class="panties">
     <div class="one-panty" *ngFor="let p of panties$ | async" (click)="path = p"
          [class.selected]="path === p">
-      <img [src]="pantiesService.originalPantyUrl(p)">
+      <img [src]="pantiesService.originalPantyUrl(p)"
+           [class.small]="pantySize === 'small'"
+           [class.medium]="pantySize === 'medium'"
+           [class.large]="pantySize === 'large'">
       <div>{{p}}</div>
     </div>
   </div>
