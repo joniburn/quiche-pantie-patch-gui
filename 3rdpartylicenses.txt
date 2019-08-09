@@ -87,6 +87,8 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/button-toggle
+
 @angular/material/dialog
 
 @angular/material/icon
@@ -94,6 +96,8 @@ THE SOFTWARE.
 @angular/material/progress-bar
 
 @angular/material/radio
+
+@angular/material/tabs
 
 @angular/material/tooltip
 
