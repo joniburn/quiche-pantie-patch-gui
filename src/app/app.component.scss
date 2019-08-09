@@ -37,10 +37,18 @@
         outline: solid 3px #ccc;
       }
       img {
-        width: 300px;
         height: auto;
         margin: 16px;
         @include alpha-background();
+        &.small {
+          width: 150px;
+        }
+        &.medium {
+          width: 300px;
+        }
+        &.large {
+          width: 450px;
+        }
       }
       div {
         margin-bottom: 8px;

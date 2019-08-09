@@ -1,1 +1,17 @@
 @import '../../styles.scss';
+
+// 更新履歴の調整
+table {
+  margin-top: 16px;
+  border-collapse: collapse;
+  td {
+    padding: 0 8px;
+    vertical-align: top;
+    padding: 8px;
+    border: solid 1px grey;
+  }
+  ul {
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+}
