@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.6.0',
+      date: '2019-08-13',
+      descriptions: [
+        'ブラウザ上の画像処理でテクスチャにパンツを重ねる機能を追加',
+      ],
+    },
+    {
       version: 'v1.5.0',
       date: '2019-08-12',
       descriptions: [
@@ -30,7 +37,7 @@ export class InfoDialogComponent {
       version: 'v1.4.0',
       date: '2019-08-12',
       descriptions: [
-        'ブラウザータブに表示されるタイトルを変更',
+        'ブラウザタブに表示されるタイトルを変更',
         '幽狐さんの変換に対応',
       ],
     },
