@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.5.0',
+      date: '2019/08/12',
+      descriptions: [
+        'WIP: 自動デプロイのテスト中',
+      ],
+    },
+    {
       version: 'v1.4.0',
       date: '2019/08/12',
       descriptions: [
