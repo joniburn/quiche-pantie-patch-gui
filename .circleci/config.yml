@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
       - image: circleci/node:lts
 
@@ -29,12 +29,15 @@ jobs:
 
       - run: npm run lint
       - run: npm run gh-pages
+      - run: git config user.name $GITHUB_NAME
+      - run: git config user.email $GITHUB_EMAIL
+      - run: npm run deploy
 
 workflows:
   version: 2
   update-pages:
     jobs:
-      - build:
+      - deploy:
           filters:
             branches:
               only: develop
