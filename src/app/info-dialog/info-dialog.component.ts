@@ -19,6 +19,14 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.4.0',
+      date: '2019/08/12',
+      descriptions: [
+        'ブラウザータブに表示されるタイトルを変更',
+        '幽狐さんの変換に対応',
+      ],
+    },
+    {
       version: 'v1.3.0',
       date: '2019/08/09',
       descriptions: [
