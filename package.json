@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
-    "gh-pages": "ng build --base-href=/quiche-pantie-patch-gui/ --deploy-url=/quiche-pantie-patch-gui/ --prod --output-path=dist",
+    "gh-pages": "ng build --base-href=/quiche-pantie-patch-gui/ --deploy-url=/quiche-pantie-patch-gui/ --prod --output-path=dist --progress=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
