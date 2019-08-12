@@ -23,6 +23,7 @@ export class InfoDialogComponent {
       date: '2019/08/12',
       descriptions: [
         'ブラウザータブに表示されるタイトルを変更',
+        '幽狐さんの変換に対応',
       ],
     },
     {
