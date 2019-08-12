@@ -23,6 +23,7 @@ export class InfoDialogComponent {
       date: '2019/08/12',
       descriptions: [
         '画面外のパンツ画像を後から読み込むように変更',
+        'パンツ一覧の一番上／一番下にスクロールするボタンを追加',
       ],
     },
     {

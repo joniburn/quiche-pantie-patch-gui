@@ -8,14 +8,21 @@
 
 <!-- 変換元パンツの一覧 -->
 <h3>変換するパンツを選んでください。</h3>
-<mat-button-toggle-group [(ngModel)]="pantySize">
-  <mat-button-toggle value="small">小</mat-button-toggle>
-  <mat-button-toggle value="medium">中</mat-button-toggle>
-  <mat-button-toggle value="large">大</mat-button-toggle>
-  <mat-button-toggle value="original">原寸</mat-button-toggle>
-</mat-button-toggle-group>
-<div class="panties-container">
-  <div class="panties">
+<div class="panty-list-tool">
+  <mat-button-toggle-group [(ngModel)]="pantySize">
+    <mat-button-toggle value="small">小</mat-button-toggle>
+    <mat-button-toggle value="medium">中</mat-button-toggle>
+    <mat-button-toggle value="large">大</mat-button-toggle>
+    <mat-button-toggle value="original">原寸</mat-button-toggle>
+  </mat-button-toggle-group>
+  <span class="fill"></span>
+  <button mat-button matTooltip="一番上へスクロール"
+          (click)="list.scrollTo(0, 0)">
+    <mat-icon>arrow_drop_up</mat-icon>
+  </button>
+</div>
+<div class="panties-container" #list>
+  <div class="panties" #panties>
     <ng-container *ngIf="panties$ | async as panties; else loading">
       <div class="one-panty" *ngFor="let p of panties" (click)="path = p"
            [class.selected]="path === p">
@@ -31,6 +38,13 @@
       <div>Loading dream...</div>
     </ng-template>
   </div>
+</div>
+<div class="panty-list-tool">
+  <span class="fill"></span>
+  <button mat-button matTooltip="一番下へスクロール"
+          (click)="list.scrollTo(0, panties.scrollHeight)">
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
 </div>
 
 <!-- 変換先アバター選択 -->
