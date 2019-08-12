@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LazyLoadImageModule, intersectionObserverPreset } from 'ng-lazyload-image';
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
@@ -15,6 +16,9 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    LazyLoadImageModule.forRoot({
+      preset: intersectionObserverPreset,
+    }),
     AppMaterialModule,
   ],
   declarations: [

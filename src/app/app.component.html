@@ -19,7 +19,8 @@
     <ng-container *ngIf="panties$ | async as panties; else loading">
       <div class="one-panty" *ngFor="let p of panties" (click)="path = p"
            [class.selected]="path === p">
-        <img [src]="pantiesService.originalPantyUrl(p)"
+        <img [lazyLoad]="pantiesService.originalPantyUrl(p)"
+             [defaultImage]="'assets/loading.png'"
              [class.small]="pantySize === 'small'"
              [class.medium]="pantySize === 'medium'"
              [class.large]="pantySize === 'large'">
