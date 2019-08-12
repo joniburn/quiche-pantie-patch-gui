@@ -20,7 +20,7 @@ export class InfoDialogComponent {
   updateLog: UpdateLog[] = [
     {
       version: 'v1.5.0',
-      date: '2019/08/12',
+      date: '2019-08-12',
       descriptions: [
         '画面外のパンツ画像を後から読み込むように変更',
         'パンツ一覧の一番上／一番下にスクロールするボタンを追加',
@@ -28,7 +28,7 @@ export class InfoDialogComponent {
     },
     {
       version: 'v1.4.0',
-      date: '2019/08/12',
+      date: '2019-08-12',
       descriptions: [
         'ブラウザータブに表示されるタイトルを変更',
         '幽狐さんの変換に対応',
@@ -36,7 +36,7 @@ export class InfoDialogComponent {
     },
     {
       version: 'v1.3.0',
-      date: '2019/08/09',
+      date: '2019-08-09',
       descriptions: [
         '更新履歴を追加',
         'パンツ一覧をAPIから取得し、毎日自動更新されるように修正',
@@ -45,14 +45,14 @@ export class InfoDialogComponent {
     },
     {
       version: 'v1.2.0',
-      date: '2019/08/08',
+      date: '2019-08-08',
       descriptions: [
         '「このアプリについて」を追加',
       ],
     },
     {
       version: 'v1.1.0',
-      date: '2019/08/07',
+      date: '2019-08-07',
       descriptions: [
         'パンツ変換中にアニメーションを表示',
         'パンツ画像の背景にアルファ透過でおなじみのチェック柄を表示',
@@ -61,7 +61,7 @@ export class InfoDialogComponent {
     },
     {
       version: 'v1.0.0',
-      date: '2019/08/06',
+      date: '2019-08-06',
       descriptions: [
         '暫定バージョン',
       ],
