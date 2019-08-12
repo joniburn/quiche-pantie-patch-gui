@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
     this.dialog.open(ResultDialogComponent, {
       disableClose: true,
       data: {
+        filename: this.path,
         url: this.pantiesService.convertedPantyUrl(this.model[0], this.path),
       }
     });

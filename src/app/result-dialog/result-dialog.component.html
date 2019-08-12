@@ -4,9 +4,20 @@
 <ng-template #loading>Converting dream...</ng-template>
 <div mat-dialog-content>
   <div [style.display]="loaded ? 'block' : 'none'">
-    右クリックから名前をつけて画像を保存をしてください。
     <div class="img-container">
-      <img #dream [src]="data.url">
+      <img class="hidden" crossorigin="anonymous" #dream [src]="data.url">
+      <canvas #canvas></canvas>
+      <div class="buttons">
+        <a mat-flat-button color="primary" [href]="imageObjectUrl"
+           [download]="file?.name || data.filename">ダウンロード</a>
+        <button mat-flat-button color="primary" ngfSelect accept="image/*"
+                [(file)]="file" (fileChange)="onFileChange()">ブラウザ上で画像を重ねる ※</button>
+      </div>
+    </div>
+    <div>
+      ※
+      選択したファイルはブラウザ上の画像処理で合成されます。
+      アプリ作者など、第三者のサーバーへアップロードされることはありません。
     </div>
   </div>
   <mat-progress-bar *ngIf="!loaded" mode="indeterminate"></mat-progress-bar>
