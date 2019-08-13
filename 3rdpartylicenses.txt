@@ -89,6 +89,8 @@ THE SOFTWARE.
 
 @angular/material/button-toggle
 
+@angular/material/checkbox
+
 @angular/material/dialog
 
 @angular/material/icon
