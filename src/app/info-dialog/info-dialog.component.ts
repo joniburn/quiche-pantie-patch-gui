@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.7.0',
+      date: '2019-08-13',
+      descriptions: [
+        'パンツの変換オプションを指定する機能を追加',
+      ],
+    },
+    {
       version: 'v1.6.0',
       date: '2019-08-13',
       descriptions: [

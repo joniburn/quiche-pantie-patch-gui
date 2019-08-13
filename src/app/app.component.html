@@ -49,13 +49,28 @@
 
 <!-- 変換先アバター選択 -->
 <h3>変換対象のアバターを選んでください。</h3>
-<mat-radio-group [(ngModel)]="model">
-  <mat-radio-button *ngFor="let c of converters$ | async" [value]="c">
-    {{c[1]}}
+<mat-radio-group [(ngModel)]="model" (change)="updateEnabledOptionKeys()">
+  <mat-radio-button *ngFor="let c of convertersList" [value]="c">
+    {{c[1].displayName}}
   </mat-radio-button>
 </mat-radio-group>
 
-<!-- GO! -->
-<button mat-flat-button color="primary" [disabled]="!model || !path" (click)="execute()">
-  {{ path ? path + ' を' : '' }} {{ model ? model[1] : '未選択' }} に変換！
-</button>
+<div class="exec">
+
+  <!-- GO! -->
+  <button mat-flat-button color="primary" [disabled]="!model || !path" (click)="execute()">
+    {{ path ? path + ' を' : '' }} {{ model ? model[1].displayName : '未選択' }} に変換！
+  </button>
+
+  <!-- 変換オプション -->
+  <ng-container *ngIf="model">
+    <div>オプション：</div>
+
+    <div *ngIf="model[1].options.length === 0">なし</div>
+
+    <ng-container *ngFor="let key of optionKeys">
+      <mat-checkbox *ngIf="enabledOptionKeys[key]" [(ngModel)]="options[key]">{{optionDesc[key]}}</mat-checkbox>
+    </ng-container>
+  </ng-container>
+
+</div>

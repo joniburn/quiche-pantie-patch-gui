@@ -75,6 +75,17 @@ mat-radio-group {
   flex-direction: column;
 }
 
-button {
+.exec {
   margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  button {
+    margin-right: 8px;
+  }
+
+  mat-checkbox:not(:last-child) {
+    margin: 0 24px 0 0;
+  }
 }

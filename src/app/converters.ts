@@ -19,7 +19,7 @@ export const CONVERTERS: {[key: string]: Converter} = {
 
   anna: {
     displayName: '吸血鬼アンナちゃん',
-    options: [],
+    options: ['add_sign'],
   },
   anna_light: {
     displayName: '吸血鬼アンナちゃん(ライト)',
@@ -27,7 +27,7 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   fuzzy: {
     displayName: 'ファジーちゃん',
-    options: [],
+    options: ['is_frill'],
   },
   linz: {
     displayName: 'リンツちゃん',
@@ -47,11 +47,11 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   milk: {
     displayName: 'ミルクちゃん',
-    options: [],
+    options: ['add_sign'],
   },
   mishe: {
     displayName: 'ミーシェちゃん',
-    options: [],
+    options: ['add_sign'],
   },
   quiche: {
     displayName: 'キッシュちゃん',
@@ -59,7 +59,7 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   quiche_bra: {
     displayName: 'キッシュちゃん(ブラ)',
-    options: [],
+    options: ['is_lace', 'dis_ribbon', 'dis_shading', 'dis_decoration', 'dis_texturing'],
   },
   quiche_light: {
     displayName: 'キッシュちゃん(ライト)',
@@ -67,15 +67,15 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   quiche_nbody: {
     displayName: 'キッシュちゃん(素体)',
-    options: [],
+    options: ['with_bra'],
   },
   ramne: {
     displayName: 'ラムネちゃん',
-    options: [],
+    options: ['add_sign'],
   },
   shaclo: {
     displayName: 'シャーロちゃん',
-    options: [],
+    options: ['stitch_correction'],
   },
   tanu: {
     displayName: 'たぬちゃん',
@@ -87,6 +87,6 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   yuko: {
     displayName: '幽狐さん',
-    options: [],
+    options: ['use_ribbon_mesh'],
   },
 };

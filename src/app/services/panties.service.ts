@@ -53,9 +53,16 @@ export class PantiesService {
    *
    * @param model 変換対象モデル
    * @param path パンツのファイル名
+   * @param options 変換オプション
    */
-  convertedPantyUrl(model: string, path: string): string {
-    return `${BASE_URL}/api/convert/${model}/${path}`;
+  convertedPantyUrl(model: string, path: string,
+                    options: {[key: string]: string}): string {
+    const url = new URL(`${BASE_URL}/api/convert/${model}/${path}`);
+    const params = url.searchParams;
+    Object.entries(options).forEach((e) => {
+      params.append(e[0], e[1]);
+    });
+    return url.toString();
   }
 
 }
