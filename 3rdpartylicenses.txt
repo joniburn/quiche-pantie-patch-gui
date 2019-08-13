@@ -93,6 +93,8 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
+@angular/material/form-field
+
 @angular/material/icon
 
 @angular/material/progress-bar
