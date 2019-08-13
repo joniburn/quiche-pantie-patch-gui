@@ -14,6 +14,14 @@ interface DreamList {
   images: string[];
 }
 
+/**
+ * 似ているパンツの検索APIの返却値。
+ */
+interface SuggestList {
+  suggests: string[];
+  scores: number[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +38,16 @@ export class PantiesService {
   getPanties(): Observable<string[]> {
     return this.client.get<DreamList>(`${BASE_URL}/api/dream/`).pipe(
       map(dreamList => dreamList.images));
+  }
+
+  /**
+   * 似ているパンツの検索を行う。
+   *
+   * @param path 検索対象パンツのファイル名
+   */
+  getSuggestions(path: string): Observable<string[]> {
+    return this.client.get<SuggestList>(`${BASE_URL}/api/suggest/${path}`).pipe(
+      map(suggestList => suggestList.suggests));
   }
 
   /**

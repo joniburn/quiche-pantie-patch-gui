@@ -22,6 +22,20 @@
   </button>
 </div>
 <div class="panties-container" #list>
+  <div class="toolbar">
+    <button mat-flat-button class="suggest" color="primary" [disabled]="!path"
+            (click)="getSuggestions()">
+      選択中のパンツと似たパンツを検索する
+    </button>
+    <mat-form-field>
+      <input type="text" matInput readonly [disabled]="!suggesting"
+             [value]="suggesting ? suggesting : '検索中のパンツ名'">
+      <button mat-icon-button matSuffix *ngIf="suggesting"
+              (click)="clearSuggestions()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
   <div class="panties" #panties>
     <ng-container *ngIf="panties$ | async as panties; else loading">
       <div class="one-panty" *ngFor="let p of panties" (click)="path = p"

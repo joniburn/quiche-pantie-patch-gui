@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
@@ -16,6 +17,8 @@ import { ConverterOption, OPTION_DESCRIPTIONS } from './options';
 export class AppComponent implements OnInit {
 
   panties$: Observable<string[]>;
+  allPanties$: Observable<string[]>;
+
   convertersList: [string, Converter][];
   convertersMap: {[key: string]: Converter};
 
@@ -23,6 +26,11 @@ export class AppComponent implements OnInit {
 
   path: string;
   model: [string, Converter];
+
+  /**
+   * 似たパンツの検索を行っている対象のパンツ
+   */
+  suggesting: string = null;
 
   /**
    * 変換オプション
@@ -55,7 +63,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.panties$ = this.pantiesService.getPanties();
+    this.allPanties$ = this.pantiesService.getPanties();
+    this.panties$ = this.allPanties$;
     this.pantiesService.getConverters().subscribe(mapping => {
       this.convertersMap = mapping;
       this.convertersList = Object.entries(mapping);
@@ -92,6 +101,25 @@ export class AppComponent implements OnInit {
         url: this.pantiesService.convertedPantyUrl(this.model[0], this.path, options),
       }
     });
+  }
+
+  /**
+   * 似ているパンツの検索APIを呼び出してパンツ一覧を更新する
+   */
+  getSuggestions() {
+    this.suggesting = this.path;
+    // 1番目に検索対象のパンツを表示する
+    this.panties$ = this.pantiesService.getSuggestions(this.suggesting).pipe(map(panties => {
+      return [this.suggesting].concat(panties);
+    }));
+  }
+
+  /**
+   * 似ているパンツの表示を解除する
+   */
+  clearSuggestions() {
+    this.suggesting = null;
+    this.panties$ = this.allPanties$;
   }
 
 }
