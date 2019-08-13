@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { CONVERTERS, Converter } from '../converters';
 
 const BASE_URL = 'https://pantie-patch.herokuapp.com';
 
@@ -34,8 +35,8 @@ export class PantiesService {
   /**
    * コンバーター定義を取得する。
    */
-  getConverters(): Observable<{[key: string]: string}> {
-    return this.client.get<{[key: string]: string}>(`assets/converters.json`);
+  getConverters(): Observable<{[key: string]: Converter}> {
+    return of(CONVERTERS);
   }
 
   /**

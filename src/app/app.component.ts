@@ -31,7 +31,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.panties$ = this.pantiesService.getPanties();
     this.converters$ = this.pantiesService.getConverters().pipe(
-      map(mapping => Object.entries(mapping)));
+      map(mapping => Object.entries(mapping).map(e => {
+        return [e[0], e[1].displayName];
+      })));
   }
 
   openInfoDialog() {
