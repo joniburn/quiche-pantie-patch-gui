@@ -89,4 +89,8 @@ export const CONVERTERS: {[key: string]: Converter} = {
     displayName: '幽狐さん',
     options: ['use_ribbon_mesh'],
   },
+  vroid: {
+    displayName: 'VRoidちゃん',
+    options: [],
+  },
 };
