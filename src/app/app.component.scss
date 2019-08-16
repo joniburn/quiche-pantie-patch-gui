@@ -40,7 +40,7 @@
   .toolbar {
     position: sticky;
     top: -8px;
-    width: 100%;
+    width: calc(100% - 24px);
     height: 64px;
     margin: -8px;
     padding-left: 32px;
@@ -57,6 +57,10 @@
     mat-form-field {
       width: 150px;
       flex-shrink: 0;
+    }
+
+    .fill {
+      flex-grow: 1;
     }
   }
 
