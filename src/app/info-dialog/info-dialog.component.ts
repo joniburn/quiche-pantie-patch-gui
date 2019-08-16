@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.10.0',
+      date: '2019-08-16',
+      descriptions: [
+        'サイズ変更時等にパンツを見失うことがあるので、選択中のパンツへスクロールする機能を追加',
+      ],
+    },
+    {
       version: 'v1.9.0',
       date: '2019-08-14',
       descriptions: [

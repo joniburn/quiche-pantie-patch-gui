@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren
+} from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -26,6 +28,12 @@ export class AppComponent implements OnInit {
 
   path: string;
   model: [string, Converter];
+
+  @ViewChild('list', {static: true})
+  pantyList: ElementRef<HTMLDivElement>;
+
+  @ViewChildren('pantycard')
+  pantycards: QueryList<ElementRef<HTMLDivElement>>;
 
   /**
    * 似たパンツの検索を行っている対象のパンツ
@@ -120,6 +128,22 @@ export class AppComponent implements OnInit {
   clearSuggestions() {
     this.suggesting = null;
     this.panties$ = this.allPanties$;
+  }
+
+  /**
+   * 現在選択しているパンツが表示範囲内に入るようにスクロールする
+   */
+  focusCurrentPanty() {
+    // 選択中の要素を取得
+    const current = this.pantycards.find(elm => elm.nativeElement.dataset.path === this.path);
+    if (!current) {
+      return;
+    }
+
+    // スクロール
+    const listTop = this.pantyList.nativeElement.getBoundingClientRect().top;
+    const targetTop = current.nativeElement.getBoundingClientRect().top;
+    this.pantyList.nativeElement.scrollBy(0, targetTop - listTop - 81);
   }
 
 }

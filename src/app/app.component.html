@@ -35,11 +35,15 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
+    <span class="fill"></span>
+    <button mat-button (click)="focusCurrentPanty()" matTooltip="選択中のパンツへスクロールする">
+      <mat-icon>find_in_page</mat-icon>
+    </button>
   </div>
   <div class="panties" #panties>
     <ng-container *ngIf="panties$ | async as panties; else loading">
       <div class="one-panty" *ngFor="let p of panties" (click)="path = p"
-           [class.selected]="path === p">
+           [class.selected]="path === p" #pantycard [attr.data-path]="p">
         <img [lazyLoad]="pantiesService.originalPantyUrl(p)"
              [defaultImage]="'assets/loading.png'"
              [class.small]="pantySize === 'small'"
