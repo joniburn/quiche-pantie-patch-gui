@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.11.0',
+      date: '2019-08-23',
+      descriptions: [
+        'コルネットちゃんの変換に対応',
+      ],
+    },
+    {
       version: 'v1.10.0',
       date: '2019-08-16',
       descriptions: [

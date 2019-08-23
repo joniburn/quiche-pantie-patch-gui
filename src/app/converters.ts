@@ -93,4 +93,12 @@ export const CONVERTERS: {[key: string]: Converter} = {
     displayName: 'VRoidちゃん',
     options: [],
   },
+  cornet: {
+    displayName: 'コルネットちゃん',
+    options: [],
+  },
+  cornet_nbody: {
+    displayName: 'コルネットちゃん(素体)',
+    options: [],
+  },
 };
