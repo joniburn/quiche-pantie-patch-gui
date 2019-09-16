@@ -19,7 +19,6 @@
 
 .panty-list-tool {
   display: flex;
-  align-items: flex-end;
   .fill {
     flex-grow: 1;
   }
@@ -28,6 +27,12 @@
     padding: 0;
     height: 32px;
   }
+}
+.panty-list-tool-start {
+  align-items: flex-end;
+}
+.panty-list-tool-end {
+  align-items: flex-start;
 }
 
 .panties-container {
