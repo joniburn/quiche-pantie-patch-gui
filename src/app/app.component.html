@@ -8,7 +8,7 @@
 
 <!-- 変換元パンツの一覧 -->
 <h3>変換するパンツを選んでください。</h3>
-<div class="panty-list-tool">
+<div class="panty-list-tool panty-list-tool-start">
   <mat-button-toggle-group [(ngModel)]="pantySize">
     <mat-button-toggle value="small">小</mat-button-toggle>
     <mat-button-toggle value="medium">中</mat-button-toggle>
@@ -57,7 +57,8 @@
     </ng-template>
   </div>
 </div>
-<div class="panty-list-tool">
+<div class="panty-list-tool panty-list-tool-end">
+  <span>ヒント：変換しない場合は画像を右クリックで直接保存できます。</span>
   <span class="fill"></span>
   <button mat-button matTooltip="一番下へスクロール"
           (click)="list.scrollTo(0, panties.scrollHeight)">
