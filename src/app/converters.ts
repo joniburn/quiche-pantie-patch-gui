@@ -105,4 +105,8 @@ export const CONVERTERS: {[key: string]: Converter} = {
     displayName: 'Noyちゃん',
     options: [],
   },
+  firina: {
+    displayName: 'フィリナちゃん',
+    options: [],
+  },
 };
