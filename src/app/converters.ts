@@ -101,4 +101,8 @@ export const CONVERTERS: {[key: string]: Converter} = {
     displayName: 'コルネットちゃん(素体)',
     options: [],
   },
+  noy: {
+    displayName: 'Noyちゃん',
+    options: [],
+  },
 };
