@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.12.0',
+      date: '2019-09-23',
+      descriptions: [
+        'Noyちゃんの変換に対応',
+      ],
+    },
+    {
       version: 'v1.11.0',
       date: '2019-08-23',
       descriptions: [
