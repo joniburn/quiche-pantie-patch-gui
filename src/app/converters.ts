@@ -107,6 +107,6 @@ export const CONVERTERS: {[key: string]: Converter} = {
   },
   firina: {
     displayName: 'フィリナちゃん',
-    options: [],
+    options: ['is_frill'],
   },
 };
