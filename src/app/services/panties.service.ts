@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import * as lodash from 'lodash';
-
-import { CONVERTERS, Converter } from '../converters';
+import { Converter } from '../converters';
+import { ConverterOption, OPTION_DESCRIPTIONS } from '../options';
 
 const BASE_URL = 'https://pantie-patch.herokuapp.com';
 
@@ -21,6 +20,7 @@ interface DreamList {
  */
 interface ModelList {
   models: string[];
+  display_names: string[];
 }
 
 /**
@@ -29,6 +29,15 @@ interface ModelList {
 interface SuggestList {
   suggests: string[];
   scores: number[];
+}
+
+/**
+ * モデル詳細取得APIの返却値。
+ */
+interface Model {
+  display_name: string;
+  images: string[];
+  options: string[];
 }
 
 @Injectable({
@@ -62,19 +71,39 @@ export class PantiesService {
   /**
    * コンバーター定義を取得する。
    */
-  getConverters(): Observable<{[key: string]: Converter}> {
-    // 新規モデルが追加された場合、CONVERTERSの更新前でも変換を実行できるようにする
-    const conv = lodash.cloneDeep(CONVERTERS);
+  getConverters(): Observable<Converter[]> {
     return this.client.get<ModelList>(`${BASE_URL}/api/convert/`).pipe(map(modelList => {
-      for (const model of modelList.models) {
-        if (!conv[model]) {
-          conv[model] = {
-            displayName: model,  // API上のモデル名をそのまま表示
-            options: [],  // オプションは無し
+      const converters = [];
+      for (let i = 0; i < modelList.models.length; i++) {
+        converters.push({
+          modelName: modelList.models[i],
+          displayName: modelList.display_names[i],
+        });
+      }
+      return converters;
+    }));
+  }
+
+  /**
+   * 変換対象モデルが対応しているオプションの一覧を取得する。
+   *
+   * @param model 変換対象モデル
+   */
+  getModelOptions(model: string): Observable<{[optionName: string]: ConverterOption}> {
+    return this.client.get<Model>(`${BASE_URL}/api/convert/${model}/`).pipe(map(modelData => {
+      const options = {};
+      for (const optionName of modelData.options) {
+        if (OPTION_DESCRIPTIONS[optionName]) {
+          options[optionName] = OPTION_DESCRIPTIONS[optionName];
+        } else {
+          // 未知のオプション
+          options[optionName] = {
+            description: optionName,
+            defaultValue: false,
           };
         }
       }
-      return conv;
+      return options;
     }));
   }
 

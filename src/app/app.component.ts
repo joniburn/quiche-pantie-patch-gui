@@ -9,7 +9,15 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import { PantiesService } from './services/panties.service';
 import { Converter } from './converters';
-import { ConverterOption, OPTION_DESCRIPTIONS } from './options';
+
+/**
+ * 変換オプション
+ */
+interface Option {
+  name: string;
+  description: string;
+  value: boolean;
+}
 
 @Component({
   selector: 'qpp-root',
@@ -21,13 +29,12 @@ export class AppComponent implements OnInit {
   panties$: Observable<string[]>;
   allPanties$: Observable<string[]>;
 
-  convertersList: [string, Converter][];
-  convertersMap: {[key: string]: Converter};
+  converters: Converter[];
 
   pantySize: 'small' | 'medium' | 'large' | 'original' = 'medium';
 
   path: string;
-  model: [string, Converter];
+  model: Converter;
 
   @ViewChild('list', {static: true})
   pantyList: ElementRef<HTMLDivElement>;
@@ -36,33 +43,14 @@ export class AppComponent implements OnInit {
   pantycards: QueryList<ElementRef<HTMLDivElement>>;
 
   /**
-   * 似たパンツの検索を行っている対象のパンツ
+   * 似たパンツの検索を行っている対象のパンツ: nullは検索を行っていない
    */
   suggesting: string = null;
 
   /**
-   * 変換オプション
+   * 選択中のモデルの変換オプション: nullはAPIから取得中
    */
-  options: ConverterOption = {
-    // 以下はwebapp.jsonで定義された初期値より
-    with_bra: true,
-    is_lace: false,
-    dis_ribbon: false,
-    dis_shading: false,
-    dis_decoration: false,
-    dis_texturing: false,
-    add_sign: false,
-    stitch_correction: false,
-    is_frill: false,
-    use_ribbon_mesh: false,
-  };
-  optionKeys = Object.keys(this.options);
-  optionDesc = OPTION_DESCRIPTIONS;
-
-  /**
-   * 現在選択中の変換先モデルで有効なオプションキー
-   */
-  enabledOptionKeys: {[key: string]: boolean};
+  options: Option[] = [];
 
   constructor(
     private dialog: MatDialog,
@@ -73,9 +61,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.allPanties$ = this.pantiesService.getPanties();
     this.panties$ = this.allPanties$;
-    this.pantiesService.getConverters().subscribe(mapping => {
-      this.convertersMap = mapping;
-      this.convertersList = Object.entries(mapping);
+    this.pantiesService.getConverters().subscribe(converters => {
+      this.converters = converters;
     });
   }
 
@@ -86,27 +73,33 @@ export class AppComponent implements OnInit {
   }
 
   /**
-   * 選択している変換先モデルで有効なオプションキーを取得
+   * 選択している変換先モデルで有効なオプション一覧を取得
    */
-  updateEnabledOptionKeys() {
-    this.enabledOptionKeys = {};
-    this.convertersMap[this.model[0]].options.forEach(optionKey => {
-      this.enabledOptionKeys[optionKey] = true;
+  updateOptions() {
+    this.options = null;
+    this.pantiesService.getModelOptions(this.model.modelName).subscribe(modelOptions => {
+      this.options = Object.entries(modelOptions).map((e) => {
+        return {
+          name: e[0],
+          description: e[1].description,
+          value: e[1].defaultValue,
+        };
+      });
     });
   }
 
   execute() {
     // 現在選択中のモデルで有効なオプションキーのみを抽出
     const options = {};
-    this.model[1].options.forEach(key => {
-      options[key] = this.options[key];
+    this.options.forEach(option => {
+      options[option.name] = option.value;
     });
 
     this.dialog.open(ResultDialogComponent, {
       disableClose: true,
       data: {
         filename: this.path,
-        url: this.pantiesService.convertedPantyUrl(this.model[0], this.path, options),
+        url: this.pantiesService.convertedPantyUrl(this.model.modelName, this.path, options),
       }
     });
   }
