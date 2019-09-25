@@ -20,7 +20,7 @@ export class InfoDialogComponent {
   updateLog: UpdateLog[] = [
     {
       version: 'v1.14.0',
-      date: '2019-09-26',
+      date: '2019-09-25',
       descriptions: [
         'パンツAPIからモデルの表示名とオプション一覧を取得するように変更' +
         '(これにより、新規モデルが追加された際は自動的にGUIも対応します。)',
