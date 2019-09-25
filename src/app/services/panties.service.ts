@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { CONVERTERS, Converter } from '../converters';
+import { Converter } from '../converters';
+import { ConverterOption, OPTION_DESCRIPTIONS } from '../options';
 
 const BASE_URL = 'https://pantie-patch.herokuapp.com';
 
@@ -28,6 +29,15 @@ interface ModelList {
 interface SuggestList {
   suggests: string[];
   scores: number[];
+}
+
+/**
+ * モデル詳細取得APIの返却値。
+ */
+interface Model {
+  display_name: string;
+  images: string[];
+  options: string[];
 }
 
 @Injectable({
@@ -61,22 +71,31 @@ export class PantiesService {
   /**
    * コンバーター定義を取得する。
    */
-  getConverters(): Observable<{[key: string]: Converter}> {
-    const converters = {};
+  getConverters(): Observable<Converter[]> {
     return this.client.get<ModelList>(`${BASE_URL}/api/convert/`).pipe(map(modelList => {
+      const converters = [];
       for (let i = 0; i < modelList.models.length; i++) {
-        const modelName = modelList.models[i];
-        const displayName = modelList.display_names[i];
-        converters[modelName] = {
-          displayName: displayName,
-          options: [],
-        };
-        // 新規モデルが追加された場合、CONVERTERSの更新前でも変換を実行できるようにする
-        if (CONVERTERS[modelName]) {
-          converters[modelName].options = CONVERTERS[modelName].options;
-        }
+        converters.push({
+          modelName: modelList.models[i],
+          displayName: modelList.display_names[i],
+        });
       }
       return converters;
+    }));
+  }
+
+  /**
+   * 変換対象モデルが対応しているオプションの一覧を取得する。
+   *
+   * @param model 変換対象モデル
+   */
+  getModelOptions(model: string): Observable<{[optionName: string]: ConverterOption}> {
+    return this.client.get<Model>(`${BASE_URL}/api/convert/${model}/`).pipe(map(modelData => {
+      const options = {};
+      for (const optionName of modelData.options) {
+        options[optionName] = OPTION_DESCRIPTIONS[optionName];
+      }
+      return options;
     }));
   }
 
