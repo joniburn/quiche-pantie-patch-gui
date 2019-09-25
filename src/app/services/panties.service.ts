@@ -93,7 +93,15 @@ export class PantiesService {
     return this.client.get<Model>(`${BASE_URL}/api/convert/${model}/`).pipe(map(modelData => {
       const options = {};
       for (const optionName of modelData.options) {
-        options[optionName] = OPTION_DESCRIPTIONS[optionName];
+        if (OPTION_DESCRIPTIONS[optionName]) {
+          options[optionName] = OPTION_DESCRIPTIONS[optionName];
+        } else {
+          // 未知のオプション
+          options[optionName] = {
+            description: optionName,
+            defaultValue: false,
+          };
+        }
       }
       return options;
     }));
