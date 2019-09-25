@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import * as lodash from 'lodash';
-
 import { CONVERTERS, Converter } from '../converters';
 
 const BASE_URL = 'https://pantie-patch.herokuapp.com';
@@ -21,6 +19,7 @@ interface DreamList {
  */
 interface ModelList {
   models: string[];
+  display_names: string[];
 }
 
 /**
@@ -63,18 +62,21 @@ export class PantiesService {
    * コンバーター定義を取得する。
    */
   getConverters(): Observable<{[key: string]: Converter}> {
-    // 新規モデルが追加された場合、CONVERTERSの更新前でも変換を実行できるようにする
-    const conv = lodash.cloneDeep(CONVERTERS);
+    const converters = {};
     return this.client.get<ModelList>(`${BASE_URL}/api/convert/`).pipe(map(modelList => {
-      for (const model of modelList.models) {
-        if (!conv[model]) {
-          conv[model] = {
-            displayName: model,  // API上のモデル名をそのまま表示
-            options: [],  // オプションは無し
-          };
+      for (let i = 0; i < modelList.models.length; i++) {
+        const modelName = modelList.models[i];
+        const displayName = modelList.display_names[i];
+        converters[modelName] = {
+          displayName: displayName,
+          options: [],
+        };
+        // 新規モデルが追加された場合、CONVERTERSの更新前でも変換を実行できるようにする
+        if (CONVERTERS[modelName]) {
+          converters[modelName].options = CONVERTERS[modelName].options;
         }
       }
-      return conv;
+      return converters;
     }));
   }
 
