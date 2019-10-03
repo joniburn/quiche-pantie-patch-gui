@@ -50,4 +50,8 @@ export const OPTION_DESCRIPTIONS: {[optionName: string]: ConverterOption} = {
     description: 'テクスチャのリボンではなくメッシュのリボンを使用',
     defaultValue: false,
   },
+  is_4k: {
+    description: '4Kテクスチャを生成する',
+    defaultValue: false,
+  }
 };
