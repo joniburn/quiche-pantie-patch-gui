@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.15.0',
+      date: '2019-10-06',
+      descriptions: [
+        'パンツAPIのURLを移行(より高速なパンツ変換が行えます。)',
+      ],
+    },
+    {
       version: 'v1.14.0',
       date: '2019-09-25',
       descriptions: [

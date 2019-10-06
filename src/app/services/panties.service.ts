@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { Converter } from '../converters';
 import { ConverterOption, OPTION_DESCRIPTIONS } from '../options';
 
-const BASE_URL = 'https://pantie-patch.herokuapp.com';
+const BASE_URL = 'https://labten.net/pantie-patch';
 
 /**
  * パンツ一覧取得APIの返却値。
