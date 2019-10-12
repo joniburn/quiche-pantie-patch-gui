@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.16.0',
+      date: '2019-10-12',
+      descriptions: [
+        'パンツをZIPでダウンロードする機能を追加',
+      ],
+    },
+    {
       version: 'v1.15.0',
       date: '2019-10-06',
       descriptions: [
