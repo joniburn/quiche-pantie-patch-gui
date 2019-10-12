@@ -15,7 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // ボタンの位置を調整
 [mat-dialog-actions] {
   display: flex;
-  padding-bottom: 0;
+  padding-bottom: 0!important;
   margin: 0 -16px -24px;
 
   & > span:first-child {
