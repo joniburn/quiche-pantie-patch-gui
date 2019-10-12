@@ -24,6 +24,14 @@ interface ModelList {
 }
 
 /**
+ * ZIPダウンロード可能なモデル一覧取得APIの返却値。
+ */
+interface ZipList {
+  zips: string[];
+  display_names: string[];
+}
+
+/**
  * 似ているパンツの検索APIの返却値。
  */
 interface SuggestList {
@@ -85,6 +93,22 @@ export class PantiesService {
   }
 
   /**
+   * ZIPダウンロード可能なモデル一覧を取得する。
+   */
+  getZipModels(): Observable<Converter[]> {
+    return this.client.get<ZipList>(`${BASE_URL}/api/zip/`).pipe(map(zipList => {
+      const converters = [];
+      for (let i = 0; i < zipList.zips.length; i++) {
+        converters.push({
+          modelName: zipList.zips[i],
+          displayName: zipList.display_names[i],
+        });
+      }
+      return converters;
+    }));
+  }
+
+  /**
    * 変換対象モデルが対応しているオプションの一覧を取得する。
    *
    * @param model 変換対象モデル
@@ -131,6 +155,14 @@ export class PantiesService {
       params.append(e[0], e[1]);
     });
     return url.toString();
+  }
+
+  /**
+   * ZIPダウンロードのURLを返す。
+   * @param zip zipファイル名
+   */
+  zippedPantyUrl(zip: string): string {
+    return `${BASE_URL}/api/zip/${zip}`;
   }
 
 }

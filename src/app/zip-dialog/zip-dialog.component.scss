@@ -1,0 +1,8 @@
+.loading {
+  width: 200px;
+  height: 150px;
+  // mat-spinnerを中央に寄せる
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
