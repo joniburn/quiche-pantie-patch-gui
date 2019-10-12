@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
+import { ZipDialogComponent } from './zip-dialog/zip-dialog.component';
 import { PantiesService } from './services/panties.service';
 import { Converter } from './converters';
 
@@ -68,6 +69,12 @@ export class AppComponent implements OnInit {
 
   openInfoDialog() {
     this.dialog.open(InfoDialogComponent, {
+      disableClose: true,
+    });
+  }
+
+  openZipDialog() {
+    this.dialog.open(ZipDialogComponent, {
       disableClose: true,
     });
   }

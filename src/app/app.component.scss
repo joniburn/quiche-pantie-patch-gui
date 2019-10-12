@@ -17,6 +17,15 @@
   }
 }
 
+.choose-pantie {
+  * {
+    display: inline-block;
+  }
+  div {
+    margin-bottom: 12px;
+  }
+}
+
 .panty-list-tool {
   display: flex;
   .fill {

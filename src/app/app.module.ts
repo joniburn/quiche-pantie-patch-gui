@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import { ZipDialogComponent } from './zip-dialog/zip-dialog.component';
 
 @NgModule({
   imports: [
@@ -27,10 +28,12 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     AppComponent,
     InfoDialogComponent,
     ResultDialogComponent,
+    ZipDialogComponent,
   ],
   entryComponents: [
     InfoDialogComponent,
     ResultDialogComponent,
+    ZipDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,13 @@
 </div>
 
 <!-- 変換元パンツの一覧 -->
-<h3>変換するパンツを選んでください。</h3>
+<div class="choose-pantie">
+  <h3>変換するパンツを選んでください。</h3>
+  <div>
+    まとめてダウンロードしたい？
+    <button mat-flat-button color="primary" (click)="openZipDialog()">ZIPでくれ</button>
+  </div>
+</div>
 <div class="panty-list-tool panty-list-tool-start">
   <mat-button-toggle-group [(ngModel)]="pantySize">
     <mat-button-toggle value="small">小</mat-button-toggle>
