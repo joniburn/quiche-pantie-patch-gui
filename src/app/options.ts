@@ -53,5 +53,17 @@ export const OPTION_DESCRIPTIONS: {[optionName: string]: ConverterOption} = {
   is_4k: {
     description: '4Kテクスチャを生成する',
     defaultValue: false,
-  }
+  },
+  with_skin: {
+    description: '脚テクスチャ',
+    defaultValue: true,
+  },
+  with_socks: {
+    description: '靴下',
+    defaultValue: true,
+  },
+  is_knee: {
+    description: 'ニーソ',
+    defaultValue: true,
+  },
 };
