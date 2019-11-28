@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.17.0',
+      date: '2019-11-28',
+      descriptions: [
+        '新しい変換オプション(量産型のらきゃっと用)に対応',
+      ],
+    },
+    {
       version: 'v1.16.0',
       date: '2019-10-12',
       descriptions: [
