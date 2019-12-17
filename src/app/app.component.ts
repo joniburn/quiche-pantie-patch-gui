@@ -79,6 +79,15 @@ export class AppComponent implements OnInit {
     });
   }
 
+  doPantieGacha() {
+    this.allPanties$.subscribe(panties => {
+      const rand = window.crypto.getRandomValues(new Uint32Array(1))[0];
+      const randZeroToOne = rand / (4294967295 + 1);  // UINT32_MAX+1で割るので[0, 1)
+      this.path = panties[Math.floor(randZeroToOne * panties.length)];
+      this.focusCurrentPanty();
+    });
+  }
+
   /**
    * 選択している変換先モデルで有効なオプション一覧を取得
    */

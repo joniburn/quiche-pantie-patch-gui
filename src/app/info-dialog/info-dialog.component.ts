@@ -19,6 +19,14 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.18.0',
+      date: '2019-12-17',
+      descriptions: [
+        'パンツガチャを追加',
+        'アバター一覧が増えてきたので折り返して表示',
+      ],
+    },
+    {
       version: 'v1.17.0',
       date: '2019-11-28',
       descriptions: [
