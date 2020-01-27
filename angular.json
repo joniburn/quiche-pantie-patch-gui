@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "quiche-pantie-patch-gui"
+  "defaultProject": "quiche-pantie-patch-gui",
+  "cli": {
+    "analytics": "01ddba28-19f8-429c-be6e-1402edd72918"
+  }
 }
