@@ -1,0 +1,8 @@
+// アルファ的なチェック柄背景
+@mixin alpha-background {
+  background: linear-gradient(45deg, #a9a9a9 25%, transparent 25%, transparent 75%, #a9a9a9 75%),
+              linear-gradient(45deg, #a9a9a9 25%, transparent 25%, transparent 75%, #a9a9a9 75%);
+  background-color: #696969;
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
