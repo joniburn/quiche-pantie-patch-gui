@@ -1,5 +1,5 @@
-@import '../styles.scss';
-@import '../theme.scss';
+@import '~@angular/material/theming';
+@import '../mixins.scss';
 
 :host {
   display: block;
@@ -55,7 +55,7 @@
     height: 64px;
     margin: -8px;
     padding-left: 32px;
-    border-bottom: 1px solid map-get(map-get($qpp-app-theme, foreground), divider);
+    border-bottom: 1px solid map-get($mat-light-theme-foreground, divider);
     background-color: white;
     display: flex;
     align-items: center;
