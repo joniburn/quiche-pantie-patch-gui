@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LazyLoadImageModule, intersectionObserverPreset } from 'ng-lazyload-image';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ngfModule } from 'angular-file';
 
 import { AppComponent } from './app.component';
@@ -18,9 +18,7 @@ import { ZipDialogComponent } from './zip-dialog/zip-dialog.component';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    LazyLoadImageModule.forRoot({
-      preset: intersectionObserverPreset,
-    }),
+    LazyLoadImageModule,
     ngfModule,
     AppMaterialModule,
   ],
