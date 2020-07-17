@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.allPanties$ = this.pantiesService.getPanties();
     this.panties$ = this.allPanties$;
     this.pantiesService.getConverters().subscribe(converters => {
@@ -67,19 +67,19 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openInfoDialog() {
+  openInfoDialog(): void {
     this.dialog.open(InfoDialogComponent, {
       disableClose: true,
     });
   }
 
-  openZipDialog() {
+  openZipDialog(): void {
     this.dialog.open(ZipDialogComponent, {
       disableClose: true,
     });
   }
 
-  doPantieGacha() {
+  doPantieGacha(): void {
     this.allPanties$.subscribe(panties => {
       const rand = window.crypto.getRandomValues(new Uint32Array(1))[0];
       const randZeroToOne = rand / (4294967295 + 1);  // UINT32_MAX+1で割るので[0, 1)
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
   /**
    * 選択している変換先モデルで有効なオプション一覧を取得
    */
-  updateOptions() {
+  updateOptions(): void {
     this.options = null;
     this.pantiesService.getModelOptions(this.model.modelName).subscribe(modelOptions => {
       this.options = Object.entries(modelOptions).map((e) => {
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  execute() {
+  execute(): void {
     // 現在選択中のモデルで有効なオプションキーのみを抽出
     const options = {};
     this.options.forEach(option => {
@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
   /**
    * 似ているパンツの検索APIを呼び出してパンツ一覧を更新する
    */
-  getSuggestions() {
+  getSuggestions(): void {
     this.suggesting = this.path;
     // 1番目に検索対象のパンツを表示する
     this.panties$ = this.pantiesService.getSuggestions(this.suggesting).pipe(map(panties => {
@@ -134,7 +134,7 @@ export class AppComponent implements OnInit {
   /**
    * 似ているパンツの表示を解除する
    */
-  clearSuggestions() {
+  clearSuggestions(): void {
     this.suggesting = null;
     this.panties$ = this.allPanties$;
   }
@@ -142,7 +142,7 @@ export class AppComponent implements OnInit {
   /**
    * 現在選択しているパンツが表示範囲内に入るようにスクロールする
    */
-  focusCurrentPanty() {
+  focusCurrentPanty(): void {
     // 選択中の要素を取得
     const current = this.pantycards.find(elm => elm.nativeElement.dataset.path === this.path);
     if (!current) {

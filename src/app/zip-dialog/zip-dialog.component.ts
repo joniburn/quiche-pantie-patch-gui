@@ -18,7 +18,7 @@ export class ZipDialogComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pantieService.getZipModels().subscribe(zips => {
       this.loaded = true;
       this.zips = zips;

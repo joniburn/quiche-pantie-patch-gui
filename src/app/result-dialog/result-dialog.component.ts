@@ -33,7 +33,7 @@ export class ResultDialogComponent implements AfterViewInit {
   ) {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     // ロード完了後に画像を表示する
     this.dream.nativeElement.addEventListener('load', () => {
       this.loaded = true;
@@ -48,7 +48,7 @@ export class ResultDialogComponent implements AfterViewInit {
     });
   }
 
-  onFileChange() {
+  onFileChange(): void {
     // FileをFileReaderで読み取り、dataURLをImageにセット
     // Imageの読み込み完了を待ってcanvasを更新する
     const reader = new FileReader();
@@ -60,7 +60,7 @@ export class ResultDialogComponent implements AfterViewInit {
     });
   }
 
-  updateCanvas() {
+  updateCanvas(): void {
     const img = this.dream.nativeElement;
     const canvas = this.canvas.nativeElement;
     const ctx = canvas.getContext('2d');
@@ -89,7 +89,7 @@ export class ResultDialogComponent implements AfterViewInit {
     });
   }
 
-  closeDialog() {
+  closeDialog(): void {
     if (this.rawObjectUrl) {
       URL.revokeObjectURL(this.rawObjectUrl);
     }
