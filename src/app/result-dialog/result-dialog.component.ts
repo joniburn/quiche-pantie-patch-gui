@@ -14,17 +14,17 @@ interface DialogData {
 })
 export class ResultDialogComponent implements AfterViewInit {
 
-  loaded = false;
-  rawObjectUrl: string;
-  imageObjectUrl: SafeUrl;
-  file: File;
-  fileImage: HTMLImageElement;
-
   @ViewChild('dream', {static: true})
   dream: ElementRef<HTMLImageElement>;
 
   @ViewChild('canvas', {static: true})
   canvas: ElementRef<HTMLCanvasElement>;
+
+  loaded = false;
+  rawObjectUrl: string;
+  imageObjectUrl: SafeUrl;
+  file: File;
+  fileImage: HTMLImageElement;
 
   constructor(
     private dialogRef: MatDialogRef<ResultDialogComponent>,

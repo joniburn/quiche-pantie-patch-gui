@@ -27,6 +27,12 @@ interface Option {
 })
 export class AppComponent implements OnInit {
 
+  @ViewChild('list', {static: true})
+  pantyList: ElementRef<HTMLDivElement>;
+
+  @ViewChildren('pantycard')
+  pantycards: QueryList<ElementRef<HTMLDivElement>>;
+
   panties$: Observable<string[]>;
   allPanties$: Observable<string[]>;
 
@@ -36,12 +42,6 @@ export class AppComponent implements OnInit {
 
   path: string;
   model: Converter;
-
-  @ViewChild('list', {static: true})
-  pantyList: ElementRef<HTMLDivElement>;
-
-  @ViewChildren('pantycard')
-  pantycards: QueryList<ElementRef<HTMLDivElement>>;
 
   /**
    * 似たパンツの検索を行っている対象のパンツ: nullは検索を行っていない
@@ -94,13 +94,11 @@ export class AppComponent implements OnInit {
   updateOptions(): void {
     this.options = null;
     this.pantiesService.getModelOptions(this.model.modelName).subscribe(modelOptions => {
-      this.options = Object.entries(modelOptions).map((e) => {
-        return {
+      this.options = Object.entries(modelOptions).map((e) => ({
           name: e[0],
           description: e[1].description,
           value: e[1].defaultValue,
-        };
-      });
+        }));
     });
   }
 
@@ -126,9 +124,7 @@ export class AppComponent implements OnInit {
   getSuggestions(): void {
     this.suggesting = this.path;
     // 1番目に検索対象のパンツを表示する
-    this.panties$ = this.pantiesService.getSuggestions(this.suggesting).pipe(map(panties => {
-      return [this.suggesting].concat(panties);
-    }));
+    this.panties$ = this.pantiesService.getSuggestions(this.suggesting).pipe(map(panties => [this.suggesting].concat(panties)));
   }
 
   /**

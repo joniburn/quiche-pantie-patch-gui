@@ -6,6 +6,7 @@ export interface ConverterOption {
   defaultValue: boolean;
 }
 
+/* eslint-disable @typescript-eslint/naming-convention */
 /**
  * 変換オプションの定義
  */

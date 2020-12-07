@@ -20,6 +20,7 @@ interface DreamList {
  */
 interface ModelList {
   models: string[];
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   display_names: string[];
 }
 
@@ -28,6 +29,7 @@ interface ModelList {
  */
 interface ZipList {
   zips: string[];
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   display_names: string[];
 }
 
@@ -43,6 +45,7 @@ interface SuggestList {
  * モデル詳細取得APIの返却値。
  */
 interface Model {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   display_name: string;
   images: string[];
   options: string[];
@@ -159,6 +162,7 @@ export class PantiesService {
 
   /**
    * ZIPダウンロードのURLを返す。
+   *
    * @param zip zipファイル名
    */
   zippedPantyUrl(zip: string): string {
