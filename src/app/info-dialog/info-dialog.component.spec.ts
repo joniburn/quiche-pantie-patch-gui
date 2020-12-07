@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { InfoDialogComponent } from './info-dialog.component';
 
@@ -6,7 +6,7 @@ describe('InfoDialogComponent', () => {
   let component: InfoDialogComponent;
   let fixture: ComponentFixture<InfoDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ InfoDialogComponent ]
     })

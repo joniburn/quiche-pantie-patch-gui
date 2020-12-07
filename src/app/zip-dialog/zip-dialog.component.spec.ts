@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ZipDialogComponent } from './zip-dialog.component';
 
@@ -6,7 +6,7 @@ describe('ZipDialogComponent', () => {
   let component: ZipDialogComponent;
   let fixture: ComponentFixture<ZipDialogComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ZipDialogComponent ]
     })
