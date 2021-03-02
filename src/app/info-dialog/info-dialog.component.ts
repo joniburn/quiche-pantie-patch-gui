@@ -19,6 +19,13 @@ export class InfoDialogComponent {
 
   updateLog: UpdateLog[] = [
     {
+      version: 'v1.19.0',
+      date: '2021-03-02',
+      descriptions: [
+        '新しい変換オプション(京狐さん用)に対応',
+      ],
+    },
+    {
       version: 'v1.18.0',
       date: '2019-12-17',
       descriptions: [
