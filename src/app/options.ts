@@ -67,4 +67,8 @@ export const OPTION_DESCRIPTIONS: {[optionName: string]: ConverterOption} = {
     description: 'ニーソ',
     defaultValue: true,
   },
+  with_garter: {
+    description: 'ガーターベルト',
+    defaultValue: true,
+  }
 };
