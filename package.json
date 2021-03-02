@@ -23,8 +23,8 @@
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
-    "angular-file": "^3.0.1",
-    "ng-lazyload-image": "^8.0.1",
+    "angular-file": "^3.4.0",
+    "ng-lazyload-image": "^9.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
